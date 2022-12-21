@@ -1,9 +1,12 @@
 #!/usr/bin/python3
+""" a sqaure class"""
+
+
 class Square:
-    """type class square"""
+    """ a class that defines private instance variables"""
+    _Square__size = None
+
     def __init__(self, size):
-        """Init the square class
-        Args:
-        param1: size is the type int attribute to make it private
-        """
-        self.__size = size
+
+        """The constructor of the class"""
+        self._Square__size = size

@@ -1,8 +1,7 @@
-#!/usr/bin/python3
-from functools import reduce
-
-
+#!/usr/bin/python3e
 def uniq_add(my_list=[]):
-    set_list = set(my_list)
-    add_set = reduce(lambda x, y: x + y, set_list)
-    return add_set
+    set_list = list(set(my_list))
+    sum = 0
+    for i in set_list:
+        sum += i
+    return sum

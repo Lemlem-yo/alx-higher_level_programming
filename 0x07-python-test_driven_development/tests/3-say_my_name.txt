@@ -1,0 +1,78 @@
+=============================
+Test For Task 3
+=============================
+>>> say_my_name = __import__("3-say_my_name").say_my_name
+>>> _name = say_my_name
+
+Real string
+============
+>>> _name("Feranmi")
+My name is Feranmi 
+
+>>> _name("Feranmi", "Awotubo")
+My name is Feranmi Awotubo
+
+Empty string
+=============
+>>> _name("")
+My name is  
+
+>>> _name("", "Awotubo")
+My name is  Awotubo
+
+>>> _name("", "")
+My name is  
+
+Real string containing new line
+===============================
+>>> _name("Feranmi\n")
+My name is Feranmi
+<BLANKLINE>
+
+>>> _name("Fer\nanmi")
+My name is Fer
+anmi 
+
+>>> _name("\n", "\n")
+My name is 
+<BLANKLINE>
+<BLANKLINE>
+
+>>> _name("Feran\nmi", "Awotu\nbo")
+My name is Feran
+mi Awotu
+bo
+
+Pass other types
+================
+>>> _name(5)
+Traceback (innermost last):
+TypeError: first_name must be a string
+
+>>> _name("", 5)
+Traceback (innermost last):
+TypeError: last_name must be a string
+
+>>> _name(True, 1)
+Traceback (innermost last):
+TypeError: first_name must be a string
+
+>>> _name()
+Traceback (most recent call last):
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Pass a string containing whitespace
+===================================
+>>> _name("Feranmi Awotubo")
+My name is Feranmi Awotubo 
+
+>>> _name("", "Awotubo Feranmi")
+My name is  Awotubo Feranmi
+
+>>> _name("   ")
+My name is     
+
+>>> _name("Fer   anmi", "Aw  otu  bo")
+My name is Fer   anmi Aw  otu  bo
+
+====================================

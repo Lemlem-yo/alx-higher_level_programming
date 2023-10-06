@@ -1,0 +1,23 @@
+=======================================
+Test for matrix multiplication
+=======================================
+
+>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+>>> _mm = matrix_mul
+
+======================================
+
+>>> _mm([], [])
+Traceback (innermost last):
+ValueError: m_a can't be empty
+
+>>> _mm([[1, 2], [3, 4, 5]], [[1, 2], [3, 4, 5]])
+Traceback (innermost last):
+TypeError: each row of m_a must be of the same size
+
+>>> _mm([[1, 2], [3, 4]], [[1, 2, 3], [4, 5, 6]])
+Traceback (innermost last):
+ValueError: m_a and m_b can't be multiplied
+
+>>> _mm([[1, 2, 3], [4, 5, 6]], [[1, 2, 3], [4, 5, 6]])
+...

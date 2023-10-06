@@ -1,0 +1,70 @@
+=============================
+Test For Task 3
+=============================
+>>> print_square = __import__("4-print_square").print_square
+>>> _ps = print_square
+
+Pass integers greater than Zero
+===============================
+>>> _ps(3)
+###
+###
+###
+
+>>> _ps(4)
+####
+####
+####
+####
+
+>>> _ps(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+>>> _ps(1)
+#
+
+Pass zero
+==========
+>>> _ps(0)
+
+Pass negative integers
+======================
+>>> _ps(-1)
+Traceback (innermost last):
+ValueError: size must be >= 0
+
+Pass other types
+=================
+>>> _ps(True)
+#
+
+>>> _ps((1, 2, 3))
+Traceback (innermost last):
+TypeError: size must be an integer
+
+Pass floating point numbers less than zero
+==========================================
+>>> _ps(-2.45)
+Traceback (innermost last):
+TypeError: size must be an integer
+
+>>> _ps(-1.67)
+Traceback (innermost last):
+TypeError: size must be an integer
+
+>>> _ps(-0.0000009)
+Traceback (innermost last):
+TypeError: size must be an integer
+
+>>> _ps(-0.00000001)
+Traceback (innermost last):
+TypeError: size must be an integer

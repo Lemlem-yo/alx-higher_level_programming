@@ -1,0 +1,75 @@
+===============================
+Test For Task 1
+===============================
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>> _div = matrix_divided
+
+Real Matrix of zeros
+====================
+>>> _div([[0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0], [0, 0, 0]], 9)
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+>>> _div([[0, 0], [0, 0], [0, 0]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+Real Matriz of ones
+===================
+>>> _div([[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]], 1)
+[[1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0], [1.0, 1.0, 1.0, 1.0]]
+
+>>> _div([[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]], 9)
+[[0.11, 0.11, 0.11, 0.11], [0.11, 0.11, 0.11, 0.11], [0.11, 0.11, 0.11, 0.11], [0.11, 0.11, 0.11, 0.11]]
+
+Real matrix of various positive
+===============================
+>>> _div([[1, 4, 8, 9], [13, 14, 4, 2], [8, 10, 7, 66], [9, 2, 10, 8]], 2)
+[[0.5, 2.0, 4.0, 4.5], [6.5, 7.0, 2.0, 1.0], [4.0, 5.0, 3.5, 33.0], [4.5, 1.0, 5.0, 4.0]]
+
+>>> _div([[2.0, 4.5, 6.7], [1.2, 9.8, 5.0], [3.3, 7.6, 2.1]], 3)
+[[0.67, 1.5, 2.23], [0.4, 3.27, 1.67], [1.1, 2.53, 0.7]]
+
+Real matrix of negative
+========================
+>>> matrix = [[-3.14, -2.71, -6.02], [-1.618, -9.81, -5.55], [-0.577, -4.44, -8.88]] 
+>>> _div(matrix, 2)
+[[-1.57, -1.35, -3.01], [-0.81, -4.91, -2.77], [-0.29, -2.22, -4.44]]
+
+Real matrix of mixed positive and negative integer and floating point numbers
+=============================================================================
+>>> _div([[2, -4.3, 6.8], [1, -9.2, 5.7], [3, -7.6, 2.9]], 5)
+[[0.4, -0.86, 1.36], [0.2, -1.84, 1.14], [0.6, -1.52, 0.58]]
+
+Pass a list of other types
+==========================
+>>> _div([1, 2, 3, 4, 5], 10)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> _div([(1, 'one'), (2, 'two'), (3, 'three')], 4)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Pass a empty matrix
+===================
+>>> _div([], 7)
+[]
+
+Pass a matrix of list of different size
+=======================================
+>>> _div([[1, 2, 3], [4, 5], [6, 7, 8, 9]], 3)
+Traceback (innermost last):
+TypeError: Each row of the matrix must have the same size
+
+Pass a matrix of numbers containing multiple strings
+=====================================================
+>>> _div([['apple', 'banana', 'cherry'], ['dog', 'elephant', 'fish'], ['grape', 'honey', 'ice cream']], 4)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Pass a matrix of number containing one string
+===============================================
+>>> _div([[1, 'apple', 3.5], [4, 'dog', 5], [6, 'fish', 7]], 2)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats

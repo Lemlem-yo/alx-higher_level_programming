@@ -1,0 +1,105 @@
+======================
+Test For Task 5
+======================
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> _ti = text_indentation
+
+String without indent characters
+================================
+>>> _ti("This is cool")
+This is cool
+
+>>> _ti("Lorem ipsum\ndolor")
+Lorem ipsum
+dolor
+
+>>> _ti("Testing last string\n")
+Testing last string
+
+Empty string
+============
+>>> _ti("")
+
+String with one indent char at a point
+======================================
+>>> _ti("This is real. This is me")
+This is real.
+<BLANKLINE>
+This is me
+
+>>> _ti("I am: The Flash")
+I am:
+<BLANKLINE>
+The Flash
+
+>>> _ti("Who are you? I am: Supergirl")
+Who are you?
+<BLANKLINE>
+I am:
+<BLANKLINE>
+Supergirl
+
+String with multiple indent char at a point
+===========================================
+>>> _ti("Who is this?:")
+Who is this?
+<BLANKLINE>
+:
+<BLANKLINE>
+
+>>> _ti("Who are you!!!?: I am Nnanantia.")
+Who are you!!!?
+<BLANKLINE>
+:
+<BLANKLINE>
+I am Nnanantia.
+<BLANKLINE>
+
+>>> _ti("This.is:not?supposed.to:work?")
+This.
+<BLANKLINE>
+is:
+<BLANKLINE>
+not?
+<BLANKLINE>
+supposed.
+<BLANKLINE>
+to:
+<BLANKLINE>
+work?
+<BLANKLINE>
+
+String with indent char at end
+==============================
+>>> _ti("Oh my! Oh my! Oh my.")
+Oh my! Oh my! Oh my.
+<BLANKLINE>
+
+>>> _ti("TestAClusteredString.")
+TestAClusteredString.
+<BLANKLINE>
+
+String without indent char at end
+=================================
+>>> _ti("TestAClusteredString")
+TestAClusteredString
+
+>>> _ti("it is Unbeeliveably true")
+it is Unbeeliveably true
+
+>>> _ti("That it is an Unbeeliveable tree")
+That it is an Unbeeliveable tree
+
+Pass other types
+================
+>>> _ti(())
+Traceback (innermost last):
+TypeError: text must be a string
+
+>>> _ti(1)
+Traceback (innermost last):
+TypeError: text must be a string
+
+>>> _ti()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'

@@ -3,4 +3,5 @@
 
 
 def lookup(obj):
-    return dir(obj)
+    """ function return a list of an object's available"""
+    return (dir(obj))

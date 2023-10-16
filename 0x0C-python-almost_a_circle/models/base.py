@@ -13,7 +13,7 @@ class Base:
     def __init__(self, id=None):
         """constractor to assign the private class attrbuite"""
 
-        if id not None:
+        if id is not None:
             self.id = id
         else:
             Base.__nb_objects += 1

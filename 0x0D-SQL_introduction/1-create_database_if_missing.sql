@@ -1,2 +1,2 @@
--- Script to list databases
-SHOW DATABASES;
+-- Script to create a non existent db
+CREATE DATABASE IF NOT EXISTS hbtn_0c_0;

@@ -1,43 +1,24 @@
 #!/usr/bin/python3
 """
-Script that takes in arguments and displays all values
-in the states table of hbtn_0e_0_usa where name matches the argument.
-But this time, write one that is safe from MySQL injections!
+Displays all values in the states table of the database hbtn_0e_0_usa
+whose name matches that supplied as argument.
+Safe from SQL injections.
+Usage: ./3-my_safe_filter_states.py <mysql username> \
+                                    <mysql password> \
+                                    <database name> \
+                                    <state name searched>
 """
-
-import sys
 import MySQLdb
+from sys import argv
 
 if __name__ == "__main__":
-    # Check if all arguments are provided
-    if len(sys.argv) != 5:
-        print("Usage: {} <username> <password> <database> <state_name>".format(sys.argv[0]))
-        sys.exit(1)
-
-    # Get command line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
-
-    # Connect to MySQL server
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database)
-
-    # Create a MySQL cursor
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                         passwd=argv[2], db=argv[3], charset="utf8")
     cursor = db.cursor()
-
-    # Use parameterized query to prevent SQL injection
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query, (state_name,))
-
-    # Fetch all the rows
-    data = cursor.fetchall()
-
-    # Display the results
-    for row in data:
+    cursor.execute("SELECT * FROM states WHERE name LIKE %s ORDER BY id ASC",
+                   (argv[4],))
+    rows = cursor.fetchall()
+    for row in rows:
         print(row)
-
-    # Close the cursor and database connection
     cursor.close()
     db.close()
-
